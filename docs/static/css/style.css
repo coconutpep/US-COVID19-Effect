@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(darkslategrey, rgb(49, 40, 40));
+    background-color:darkslategray;
 }
 
 .lead {
@@ -38,6 +38,16 @@ img.blur {
     filter: blur(4px);
     filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
     width:100%;
+}
+
+
+#infection-heatmap, body, html {
+    height:100%;
+}
+
+#infection-heatmap {
+    margin-left:auto;
+    margin-right:auto;
 }
 
 @media (max-width: 768px) {
