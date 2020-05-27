@@ -41,13 +41,12 @@ img.blur {
 }
 
 
-#infection-heatmap, body, html {
+#infection-heatmap, #stock-candlestick, #weather-heatmap, body, html {
     height:100%;
 }
 
 #infection-heatmap {
-    margin-left:auto;
-    margin-right:auto;
+    margin-left:2%;
 }
 
 @media (max-width: 768px) {
