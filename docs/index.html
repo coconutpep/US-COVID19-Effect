@@ -34,15 +34,14 @@
               <p class="lead">This interactive dashboard allows you to investigate the affect of COVID-19 on various aspects of American society. Investigate how stocks, hospitals, and weather statistics changed during the Coronavirus Pandemic of 2020 in comparison with the spread of infection across the continental U.S.</p>
             </div>
         </div>
+
+        <div class="input-group mb-3">
+            <input type="date" class="form-control" id="date-input">
+        </div>
         <!--Containers for dashboard charts-->
-
-                <div class="col-10" id="infection-heatmap"></div>
-
-
-                <div class="col-10" id="stock-candlestick"></div>
-
-
-                <div class="col-10" id="weather-heatmap"></div>
+        <div class="col-10" id="infection-heatmap"></div>
+        <div class="col-10" id="stock-candlestick"></div>
+        <div class="col-10" id="weather-heatmap"></div>
 
         <!--JS for heatmap plot-->
         <script src="static/js/heatmap-plot.js"></script>
