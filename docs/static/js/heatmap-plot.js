@@ -16,13 +16,13 @@ d3.csv("data/county_clean.csv", infectionData => {
     });
 
     //Create datasets for heatmap
-    const testDataInfection = {
-        min: d3.min(infectionData, d=> d.cases),
+    let testDataInfection = {
+        min: 0,
         max: d3.max(infectionData, d => d.cases),
         data: infectionData
     };
-    const testDataDeath = {
-        min: d3.min(infectionData, d=> d.cases),
+    let testDataDeath = {
+        min: 0,
         max: d3.max(infectionData, d => d.deaths),
         data: infectionData
     };
@@ -88,12 +88,12 @@ d3.csv("data/county_clean.csv", infectionData => {
         const dataFiltered = infectionData.filter(d => d.date === dateValue);
         //Reset Heatmap Data
         testDataInfection = {
-            min: d3.min(dataFiltered, d => d.cases),
+            min: 0,
             max: d3.max(dataFiltered, d => d.cases),
             data: dataFiltered
         };
         testDataDeath = {
-            min: d3.min(dataFiltered, d => d.deaths),
+            min: 0,
             max: d3.max(dataFiltered, d => d.deaths),
             data: dataFiltered
         };
