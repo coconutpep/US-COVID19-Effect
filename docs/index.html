@@ -16,17 +16,15 @@
         <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
         integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
         crossorigin=""></script>
-        <!--JS-Heatmap Library-->
-        <script src="static/js/heatmap.js"></script>
         <!--Leaflet-heatmap plugin-->
-        <script src="static/js/leaflet-heatmap.js"></script>
+        <script src="static/js/leaflet-heat.js"></script>
         <script type="text/javascript" src="static/js/config.js"></script>
     </head>
 
     <body>
         <div class="jumbotron jumbotron-fluid">
             <div class="jumbotron-background">
-                <img src='static/images/jumbo-background.png' class="blur " id="large">
+                <img src='https://github.com/coconutpep/US-COVID19-Effect/blob/master/docs/static/images/jumbo-background.png?raw=true' class="blur " id="large">
             </div>
             <div class="container">
               <h1 class="display-4">The COVID-19 Affect</h1>
@@ -36,12 +34,18 @@
         </div>
 
         <div class="input-group mb-3">
-            <input type="date" class="form-control" id="date-input">
+            <input type="date" class="form-control col-5" id="date-input">
+            <select class="form-control col-5" id="comparison">
+                <option>Stock Lookup</option>
+                <option>Hospital Bed Usage</option>
+                <option>Weather Change</option>
+            </select>
         </div>
         <!--Containers for dashboard charts-->
-        <div class="col-10" id="infection-heatmap"></div>
-        <div class="col-10" id="stock-candlestick"></div>
-        <div class="col-10" id="weather-heatmap"></div>
+        <div class="col-5 comparator" id="infection-heatmap"></div>
+        <div class="col-5 comparator" id="stock-candlestick"></div>
+        <div class="col-5 comparator" id="hospital-bed-marker"></div>
+        <div class="col-5 comparator" id="weather-heatmap"></div>
 
         <!--JS for heatmap plot-->
         <script src="static/js/heatmap-plot.js"></script>
