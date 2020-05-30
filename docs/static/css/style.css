@@ -40,13 +40,13 @@ img.blur {
     width:100%;
 }
 
+.form-control, .comparator {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 #infection-heatmap, #stock-candlestick, #weather-heatmap, body, html {
     height:100%;
-}
-
-#infection-heatmap {
-    margin-left:2%;
 }
 
 @media (max-width: 768px) {
