@@ -1,2 +1,4 @@
 config.js
 .vscode
+config.py
+__pycache__
