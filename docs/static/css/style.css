@@ -47,6 +47,7 @@ img.blur {
 
 #infection-heatmap, #stock-candlestick, #weather-heatmap, body, html {
     height:100%;
+    display:inline-block;
 }
 
 @media (max-width: 768px) {
