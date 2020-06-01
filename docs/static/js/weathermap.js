@@ -60,6 +60,9 @@ d3.csv("data/air_quality.csv", airData => {
     //Create Layer control
     L.control.layers(overlayMaps).addTo(myMap);
 
+    //Add legend to map
+    legendAir.addTo(myMap);
+
     //Function to redraw heatmap
     function renderAir() {
         //Grab input value
@@ -91,3 +94,23 @@ d3.csv("data/air_quality.csv", airData => {
     //Event handler to change heatmap on user input
     dateInput.on("change", renderAir);
 });
+
+//Create legend for the map
+const legendAir = L.control({position: "bottomleft"});
+//Function to add legend to map
+legendAir.onAdd = function (map) {
+    //Div for the legend
+    var div = L.DomUtil.create('div', 'legend');
+        //Create labels for the legend
+        const grades = ["Least", "", "", "", "Most"];
+        const colors = ["blue", "cyan", "lime", "yellow", "red"];
+        const labels = [];
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < colors.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + colors[i] + '"></i>' +
+            grades[i] + '<br><br>';
+    }
+    //return the div with label
+    return div;
+}   

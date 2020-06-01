@@ -54,6 +54,9 @@ d3.csv("data/county_clean.csv", infectionData => {
     //Create Layer control
     L.control.layers(overlayMaps).addTo(myMap);
 
+    //Add legend to map
+    legend.addTo(myMap);
+
     //Function to redraw heatmap
     function renderHeatmap() {
         //Grab input value
@@ -78,3 +81,23 @@ d3.csv("data/county_clean.csv", infectionData => {
     //Event handler to change heatmap on user input
     dateInput.on("change", renderHeatmap);
 });
+
+//Create legend for the map
+const legend = L.control({position: "bottomleft"});
+//Function to add legend to map
+legend.onAdd = function (map) {
+    //Div for the legend
+    var div = L.DomUtil.create('div', 'legend');
+        //Create labels for the legend
+        const grades = ["Least", "", "", "", "Most"];
+        const colors = ["blue", "cyan", "lime", "yellow", "red"];
+        const labels = [];
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < colors.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + colors[i] + '"></i>' +
+            grades[i] + '<br><br>';
+    }
+    //return the div with label
+    return div;
+}   
