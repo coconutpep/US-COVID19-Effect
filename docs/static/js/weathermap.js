@@ -8,12 +8,7 @@ d3.csv("data/air_quality.csv", airData => {
     const O3 = airData.filter(d => d.parameter === "Ozone");
     const NO2 = airData.filter(d => d.parameter === "Nitrogen dioxide (NO2)");
     const SO2 = airData.filter(d => d.parameter === "Sulfur dioxide");
-    //Create Max variables to set intensity values later
-    const COMax = d3.max(CO, d => d.observation_count);
-    const O3Max = d3.max(O3, d => d.observation_count);
-    const NO2Max = d3.max(NO2, d => d.observation_count);
-    const SO2Max = d3.max(SO2, d => d.observation_count);
-    console.log(COMax);
+
     //Set initial filter date
     const date = "2020-03-31";
     //Further filter each parameter's object

@@ -1,5 +1,6 @@
 body {
     background-color:darkslategray;
+    width: 100%;
 }
 
 .lead {
@@ -45,9 +46,32 @@ img.blur {
     margin-right: auto;
 }
 
-#infection-heatmap, #stock-candlestick, #weather-heatmap, body, html {
+#infection-heatmap, .stock, .weather, body, html {
     height:100%;
     display:inline-block;
+}
+
+#infection-heatmap {
+    margin-left: 5.6%;
+    margin-right: 5.3%;
+}
+
+.stock {
+    display: none;
+}
+
+.info {
+    width: 75%;
+    margin-left: auto;
+    margin-right:auto;
+    margin-bottom: 1%;
+    background:rgba(230, 225, 225, 0.616);
+    border-radius: 3px;
+    text-align: center;
+}
+
+ul {
+    list-style-type:none;
 }
 
 @media (max-width: 768px) {
