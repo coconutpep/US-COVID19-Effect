@@ -1,5 +1,5 @@
-//Create selector for date input
-const dateInput = d3.select("#date-input");
+//Set date input to variable
+const infectionDate = d3.select("#date-input");
 
 //function to convert data date to date object
 const parseTime = d3.timeParse("%m/%e/%y");
@@ -14,17 +14,10 @@ d3.csv("data/county_clean.csv", infectionData => {
         d.cases = +d.cases;
         d.deaths = +d.deaths;
     });
-    //Initial filter for data
-    let dataFiltered = infectionData.filter(d => d.date === "2020-05-25");
 
     //Create data arrays for heatmap layers
     let infectionArr = [];
     let deathArr = [];
-    //Iterate through filtered data to append data arrays
-    dataFiltered.forEach(d => {
-        infectionArr.push([d.lat, d.long, d.cases]);
-        deathArr.push([d.lat, d.long, d.deaths]);
-    });
 
     //Create Heatmap layers
     let infectionLayer = L.heatLayer(infectionArr);
@@ -61,7 +54,7 @@ d3.csv("data/county_clean.csv", infectionData => {
     function renderHeatmap() {
         //Grab input value
         const dateValue = dateInput.property("value");
-        
+        console.log(dateValue + "infection");
         //Refilter data
         dataFiltered = infectionData.filter(d => d.date === dateValue);
         
@@ -78,8 +71,10 @@ d3.csv("data/county_clean.csv", infectionData => {
         deathLayer.setLatLngs(deathArr);
     }
 
-    //Event handler to change heatmap on user input
-    dateInput.on("change", renderHeatmap);
+    //Render initial heatmap
+    renderHeatmap();
+    //Event handler to update map on date input
+    infectionDate.on("change.heat", renderHeatmap);
 });
 
 //Create legend for the map
