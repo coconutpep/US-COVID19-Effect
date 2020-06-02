@@ -16,7 +16,6 @@ d3.csv("data/air_quality.csv", airData => {
     let O3Filtered = O3.filter(d => d.date_local === date);
     let NO2Filtered = NO2.filter(d => d.date_local === date);
     let SO2Filtered = SO2.filter(d => d.date_local === date);
-    console.log(COFiltered);
     //Create initial heatmap layers
     //Set array for each parameter
     let COArr = [];
