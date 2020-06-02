@@ -24,6 +24,7 @@ function renderChart() {
                 weatherClass[i].style.display = "inline-block";
                 }
                 dateInput.attr("value", "2020-03-31");
+                dateInput.property("value", "2020-03-31");
                 break;
           }
         case 'Stock Lookup':
@@ -35,6 +36,7 @@ function renderChart() {
                     weatherClass[i].style.display = "none";
                 }
                 dateInput.attr("value", "2020-05-25");
+                dateInput.property("value", "2020-05-25");
                 break;
            }
     }

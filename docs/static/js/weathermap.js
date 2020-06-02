@@ -57,7 +57,6 @@ d3.csv("data/air_quality.csv", airData => {
     function renderAir() {
         //Grab input value
         const dateValue = dateInput.property("value");
-        console.log(dateValue + "air");
         //Refilter data
         COFiltered = CO.filter(d => d.date_local === dateValue);
         O3Filtered = O3.filter(d => d.date_local === dateValue);
