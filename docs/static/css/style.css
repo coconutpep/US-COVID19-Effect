@@ -88,6 +88,14 @@ ul {
     opacity: 0.7;
 }
 
+.info li>span {
+    font-weight: bold;
+}
+
+#reference {
+    width: 50%;
+}
+
 @media (max-width: 768px) {
     img.blur {
         width: auto;
