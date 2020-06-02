@@ -1,3 +1,6 @@
+//Set date input to a variable
+const airDate = d3.select("#date-input");
+
 //Read in csv data
 d3.csv("data/air_quality.csv", airData => {
     //Parse through data
@@ -9,24 +12,12 @@ d3.csv("data/air_quality.csv", airData => {
     const NO2 = airData.filter(d => d.parameter === "Nitrogen dioxide (NO2)");
     const SO2 = airData.filter(d => d.parameter === "Sulfur dioxide");
 
-    //Set initial filter date
-    const date = "2020-03-31";
-    //Further filter each parameter's object
-    let COFiltered = CO.filter(d => d.date_local === date);
-    let O3Filtered = O3.filter(d => d.date_local === date);
-    let NO2Filtered = NO2.filter(d => d.date_local === date);
-    let SO2Filtered = SO2.filter(d => d.date_local === date);
     //Create initial heatmap layers
     //Set array for each parameter
     let COArr = [];
     let O3Arr = [];
     let NO2Arr = [];
     let SO2Arr = [];
-    //Iterate through each parameter and push up LatLng arrays
-    COFiltered.forEach(d => COArr.push([d.latitude, d.longitude, d.observation_count]));
-    O3Filtered.forEach(d => O3Arr.push([d.latitude, d.longitude, d.observation_count]));
-    NO2Filtered.forEach(d => NO2Arr.push([d.latitude, d.longitude, d.observation_count]));
-    SO2Filtered.forEach(d => SO2Arr.push([d.latitude, d.longitude, d.observation_count]));
     //Create initial heatmap layers
     let COLayer = L.heatLayer(COArr, {radius:50, blur:30});
     let O3Layer = L.heatLayer(O3Arr, {radius:50, blur:30});
@@ -45,15 +36,15 @@ d3.csv("data/air_quality.csv", airData => {
     const myMap = L.map("weather-heatmap", {
         center: [39.50, -98.35],
         zoom: 4,
-        layers: [baseLayer, O3Layer]
+        layers: [baseLayer, SO2Layer]
     });
 
     //Set Overlay Layers
     const overlayMaps = {
-        "Ozone": O3Layer,
-        "Carbon Monoxide": COLayer,
-        "Nitrogen Dioxide": NO2Layer,
-        "Sulfur Dioxide": SO2Layer
+        "Sulfur Dioxide (ppb)": SO2Layer,
+        "Ozone (ppm)": O3Layer,
+        "Carbon Monoxide (ppm)": COLayer,
+        "Nitrogen Dioxide (ppb)": NO2Layer,
     };
 
     //Create Layer control
@@ -66,7 +57,7 @@ d3.csv("data/air_quality.csv", airData => {
     function renderAir() {
         //Grab input value
         const dateValue = dateInput.property("value");
-        
+        console.log(dateValue + "air");
         //Refilter data
         COFiltered = CO.filter(d => d.date_local === dateValue);
         O3Filtered = O3.filter(d => d.date_local === dateValue);
@@ -90,8 +81,10 @@ d3.csv("data/air_quality.csv", airData => {
         SO2Layer.setLatLngs(SO2Arr);
     }
 
-    //Event handler to change heatmap on user input
-    dateInput.on("change", renderAir);
+    //Render initial heatmap
+    renderAir();
+    //Event handler to change the chart on date input
+    airDate.on("change.air", renderAir);
 });
 
 //Create legend for the map

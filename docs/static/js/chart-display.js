@@ -6,10 +6,13 @@ const weatherClassSelector = d3.selectAll(".weather");
 const stockClass = stockClassSelector["_groups"][0];
 const weatherClass = weatherClassSelector["_groups"][0];
 
+//Set initial date value
+//Create selector for date input
+const dateInput = d3.select("#date-input");
+
 //Function to adjust website based on chart selection
 function renderChart() {
     const currentChart = d3.select("#comparison").property("value");
-    console.log(currentChart);
     //Conditional statements to set displays
     switch (currentChart) {
         case 'Weather Comparison':
@@ -20,6 +23,7 @@ function renderChart() {
                 for (i = 0; i < weatherClass.length; i++) {
                 weatherClass[i].style.display = "inline-block";
                 }
+                dateInput.attr("value", "2020-03-31");
                 break;
           }
         case 'Stock Lookup':
@@ -30,6 +34,7 @@ function renderChart() {
                 for (i = 0; i < weatherClass.length; i++) {
                     weatherClass[i].style.display = "none";
                 }
+                dateInput.attr("value", "2020-05-25");
                 break;
            }
     }
