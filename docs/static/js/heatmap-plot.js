@@ -54,7 +54,6 @@ d3.csv("data/county_clean.csv", infectionData => {
     function renderHeatmap() {
         //Grab input value
         const dateValue = dateInput.property("value");
-        console.log(dateValue + "infection");
         //Refilter data
         dataFiltered = infectionData.filter(d => d.date === dateValue);
         
