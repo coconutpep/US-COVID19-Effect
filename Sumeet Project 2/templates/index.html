@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+
+	<title>Project 2</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="main-panel">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+
+                    <div class="col-md-8">
+
+                        <div class="row">
+
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Stock Markets' Performance YTD</h4>
+                                 </div>
+
+                                <div class="content">
+                                    <div id="chart"></div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                                                
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+
+
+	<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+	<script type="text/css" src="static/billboard.min.js"></script>
+
+    <link rel="stylesheet" href="static/billboard.min.css">
+
+
+
+    
+	<script>
+
+	var stock_data = {{ stock_data | safe }};
+	var comps = ['^WMT', '^TGT', '^NVDA'];
+    var comp1 = comps[0]
+    var comp2 = comps[1]
+    var comp3 = comps[2]
+
+	var comp1_data = stock_data[comp1]
+    var comp2_data = stock_data[comp2]
+    var comp3_data = stock_data[comp3]
+
+	var dates = stock_data['date']
+
+
+	var chart = bb.generate({
+	  bindto: "#chart",
+	  data: {
+	      x: "date",
+	      columns: [
+	          dates,
+	          comp1_data, comp2_data, comp3_data,
+          ],
+
+
+	      types: {
+	        "^WMT": "area-line-range",
+            "^TGT": "area-line-range",
+            "^NVDA": "area-line-range",
+	      },
+
+
+	      colors: {
+	        "^WMT": "red",
+            "^TGT": "green",
+            "^NVDA": "orange",
+
+	      },
+
+	      axes: {
+	        "^WMT": "y",
+            "^TGT": "y",
+            "^NVDA": "y",
+	      }
+	  },
+
+	  axis: {
+	    x: {
+	      type: "timeseries",
+	      tick: {
+	        format: "%Y-%m-%d"
+	      }
+	    },
+
+	  },
+
+
+	});
+
+	</script>
+
+</html>
