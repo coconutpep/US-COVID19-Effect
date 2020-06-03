@@ -103,12 +103,33 @@ function renderChart() {
                 for (i = 0; i < popDenClass.length; i++) {
                     popDenClass[i].style.display = "inline-block";
                 }
-                dateType.property("value", "Single Date");
-                inputRender();
-                dateType.property("disabled", true);
+                dateType.property("value", "Date Range");
+                dateType.property("disabled", false);
                 dateSingle.attr("value", "2020-05-25");
                 dateSingle.property("value", "2020-05-25");
-                runInfection();
+                dateStart.property("value", "2020-01-22");
+                dateEnd.property("value", "2020-05-25");
+                switch (dateTypeValue) {
+                    case 'Date Range':
+                        {
+                            dateSingle.style("display", "none");
+                            dateStart.style("display", "");
+                            dateEnd.style("display", "");
+                            d3.select("#infection-heatmap").style("display", "none");
+                            d3.select("#infection-line").style("display", "inline-block");
+                            break;
+                        }
+                    case 'Single Date':
+                        {
+                            dateStart.style("display", "none");
+                            dateEnd.style("display", "none");
+                            dateSingle.style("display", "");
+                            d3.select("#infection-line").style("display", "none");
+                            d3.select("#infection-heatmap").style("display", "inline-block");
+                            runInfection();
+                            break;
+                        }
+                }
                 break;
             }
     }
