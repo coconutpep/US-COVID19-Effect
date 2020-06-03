@@ -46,12 +46,12 @@ img.blur {
     margin-right: auto;
 }
 
-#infection-heatmap, .stock, .weather, body, html {
+#infection-heatmap, #infection-line, .stock, .weather, body, html {
     height:100%;
     display:inline-block;
 }
 
-#infection-heatmap {
+#infection-heatmap, #infection-line {
     margin-left: 5.6%;
     margin-right: 5.3%;
 }
@@ -94,6 +94,19 @@ ul {
 
 #reference {
     width: 50%;
+}
+
+#date-type {
+    margin-right: 0;
+    margin-left: 1%;
+}
+
+#comparison {
+    margin-right: 1%;
+}
+
+.text-muted {
+    color: rgb(186, 189, 194)!important;
 }
 
 @media (max-width: 768px) {
