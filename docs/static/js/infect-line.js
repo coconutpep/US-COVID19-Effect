@@ -51,16 +51,20 @@ d3.csv("data/infection_date.csv", infectionData => {
         const endDate = iLineEnd.property("value");
         //Filter data
         const dataFiltered = infectionData.filter(d => d.date >= startDate && d.date <= endDate);
+        //Reset x values
+        const ix = dataFiltered.map(d => d.date);
+        const dx = dataFiltered.map(d => d.date);
         //Reset y values
         const iy = dataFiltered.map(d => d.cases);
         const dy = dataFiltered.map(d => d.deaths);
-        //Redraw with new y values
+        //Redraw with new values
+        Plotly.restyle("infection-line", "x", [ix, dx]);
         Plotly.restyle("infection-line", "y", [iy, dy]);
     }
 
     //Render initial chart
     renderiLine();
     //Event handler to adjust line chart on input
-    iLineStart.on("change.infect", renderiLine);
-    iLineEnd.on("change.infect", renderiLine);
+    iLineStart.on("change", renderiLine);
+    iLineEnd.on("change", renderiLine);
 });

@@ -61,15 +61,15 @@ function renderChart() {
                 dateSingle.property("value", "2020-03-31");
                 dateSingle.attr("value", "2020-03-31");
                 dateSingle.attr("min", "2020-01-22");
-                dateSingle.attr("max", "2020-03-31");
+                dateSingle.attr("max", "2020-05-25");
                 dateStart.select("input").property("value", "2020-01-22");
                 dateStart.select("input").attr("value", "2020-01-22");
                 dateStart.select("input").attr("min", "2020-01-22");
-                dateStart.select("input").attr("max", "2020-03-31");
+                dateStart.select("input").attr("max", "2020-05-25");
                 dateEnd.select("input").property("value", "2020-03-31");
                 dateEnd.select("input").attr("value", "2020-03-31");
                 dateEnd.select("input").attr("min", "2020-01-22");
-                dateEnd.select("input").attr("max", "2020-03-31");
+                dateEnd.select("input").attr("max", "2020-05-25");
                 break;
           }
         case 'Stock Lookup':
