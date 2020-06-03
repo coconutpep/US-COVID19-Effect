@@ -2,8 +2,8 @@
 const dateType = d3.select("#date-type");
 //Selectors for Date Inputs
 const dateSingle = d3.select("#date-input");
-const dateStart = d3.select("#start-date");
-const dateEnd = d3.select("#end-date");
+const dateStart = d3.select("#start-date-holder");
+const dateEnd = d3.select("#end-date-holder");
 //Function to change input display for datetype
 function inputRender() {
     //Grab date type value

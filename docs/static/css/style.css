@@ -96,6 +96,19 @@ ul {
     width: 50%;
 }
 
+#date-type {
+    margin-right: 0;
+    margin-left: 1%;
+}
+
+#comparison {
+    margin-right: 1%;
+}
+
+.text-muted {
+    color: rgb(186, 189, 194)!important;
+}
+
 @media (max-width: 768px) {
     img.blur {
         width: auto;

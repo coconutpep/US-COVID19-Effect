@@ -18,6 +18,9 @@
         crossorigin=""></script>
         <!--Leaflet-heatmap plugin-->
         <script src="static/js/leaflet-heat.js"></script>
+        <!--Plotly Script-->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <!--Config file for API calling-->
         <script type="text/javascript" src="static/js/config.js"></script>
     </head>
 
@@ -38,8 +41,14 @@
                 <option>Date Range</option>
                 <option>Single Date</option>
             </select>
-            <input type="date" class="form-control col-2" id="start-date">
-            <input type="date" class="form-control col-2" id="end-date">
+            <div class="form-group col-3" id="start-date-holder">
+                <input type="date" class="form-control" id="start-date" aria-describedby="start-date-help">
+                <small id="start-date-help" class="form-text text-muted">Start Date</small>
+            </div>
+            <div class="form-group col-3" id="end-date-holder">
+                <input type="date" class="form-control" id="end-date" aria-describedby="end-date-help">
+                <small id="end-date-help" class="form-text text-muted">End Date</small>
+            </div>
             <input type="date" class="form-control col-3" id="date-input">
             <select class="form-control col-3" id="comparison">
                 <option>Weather Comparison</option>
@@ -82,6 +91,8 @@
 
         <!--JS for heatmap plot-->
         <script src="static/js/heatmap-plot.js"></script>
+        <!--JS for infection line graph-->
+        <script src="static/js/infect-line.js"></script>
         <!--JS for Air quality-->
         <script src="static/js/weathermap.js"></script>
         <!--JS for changing Display-->
