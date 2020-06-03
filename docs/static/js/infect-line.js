@@ -1,3 +1,7 @@
+//Date selectors
+const iLineStart = d3.select("#start-date");
+const iLineEnd = d3.select("#end-date");
+
 //Read in data
 d3.csv("data/infection_date.csv", infectionData => {
     //Parse through the data
@@ -39,4 +43,24 @@ d3.csv("data/infection_date.csv", infectionData => {
     const data = [traceInfection, traceDeath];
     //Draw Plot
     Plotly.newPlot("infection-line", data, layout);
+
+    //function to update chart
+    function renderiLine() {
+        //Grab start and end date
+        const startDate = iLineStart.property("value");
+        const endDate = iLineEnd.property("value");
+        //Filter data
+        const dataFiltered = infectionData.filter(d => d.date >= startDate && d.date <= endDate);
+        //Reset y values
+        const iy = dataFiltered.map(d => d.cases);
+        const dy = dataFiltered.map(d => d.deaths);
+        //Redraw with new y values
+        Plotly.restyle("infection-line", "y", [iy, dy]);
+    }
+
+    //Render initial chart
+    renderiLine();
+    //Event handler to adjust line chart on input
+    iLineStart.on("change.infect", renderiLine);
+    iLineEnd.on("change.infect", renderiLine);
 });

@@ -59,8 +59,11 @@ function renderChart() {
                 weatherClass[i].style.display = "inline-block";
                 }
                 dateSingle.property("value", "2020-03-31");
-                dateStart.property("value", "2020-01-22");
-                dateEnd.property("value", "2020-03-31");
+                dateSingle.attr("value", "2020-03-31");
+                dateStart.select("input").property("value", "2020-01-22");
+                dateStart.select("input").attr("value", "2020-01-22");
+                dateEnd.select("input").property("value", "2020-03-31");
+                dateEnd.select("input").attr("value", "2020-03-31");
                 break;
           }
         case 'Stock Lookup':
