@@ -83,7 +83,11 @@ function renderChart() {
                 for (i = 0; i < popDenClass.length; i++) {
                     popDenClass[i].style.display = "none";
                 }
-                dateSingle.property("value", "2020-05-25");
+                dateSingle.style("display", "none");
+                dateStart.style("display", "");
+                dateEnd.style("display", "");
+                dateType.property("value", "Date Range");
+                dateType.property("disabled", true);
                 dateStart.property("value", "2020-01-22");
                 dateEnd.property("value", "2020-05-25");
                 break;
