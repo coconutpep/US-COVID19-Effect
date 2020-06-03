@@ -34,8 +34,14 @@
         </div>
         <!--Inputs for map comparisons-->
         <div class="input-group mb-3">
-            <input type="date" class="form-control col-5" id="date-input">
-            <select class="form-control col-5" id="comparison">
+            <select class="form-control col-3" id="date-type">
+                <option>Date Range</option>
+                <option>Single Date</option>
+            </select>
+            <input type="date" class="form-control col-2" id="start-date">
+            <input type="date" class="form-control col-2" id="end-date">
+            <input type="date" class="form-control col-3" id="date-input">
+            <select class="form-control col-3" id="comparison">
                 <option>Weather Comparison</option>
                 <option>Stock Lookup</option>
             </select>
@@ -55,8 +61,10 @@
         </div>
         <!--Containers for dashboard charts-->
         <div class="col-5 comparator" id="infection-heatmap"></div>
+        <div class="col-5 comparator" id="infection-line"></div>
         <div class="col-5 comparator stock" id="stock-candlestick"></div>
         <div class="col-5 comparator weather" id="weather-heatmap"></div>
+        <div class="col-5 comparator weather" id="weather-line"></div>
         <!--Links to data sources-->
         <div class="info" id="reference">
             <div class="stock">
