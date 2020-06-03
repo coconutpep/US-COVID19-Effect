@@ -42,8 +42,10 @@ const chartSelect = d3.select("#comparison");
 //Selectors for comparison classes
 const stockClassSelector = d3.selectAll(".stock");
 const weatherClassSelector = d3.selectAll(".weather");
+const popDenClassSelector = d3.selectAll(".popDen");
 const stockClass = stockClassSelector["_groups"][0];
 const weatherClass = weatherClassSelector["_groups"][0];
+const popDenClass = popDenClassSelector["_groups"][0];
 
 //Function to adjust website based on chart selection
 function renderChart() {
@@ -53,10 +55,13 @@ function renderChart() {
         case 'Weather Comparison':
           {
                 for (i = 0; i < stockClass.length; i++) {
-                stockClass[i].style.display = "none";
+                    stockClass[i].style.display = "none";
+                }
+                for (i = 0; i < popDenClass.length; i++) {
+                    popDenClass[i].style.display = "none";
                 }
                 for (i = 0; i < weatherClass.length; i++) {
-                weatherClass[i].style.display = "inline-block";
+                    weatherClass[i].style.display = "inline-block";
                 }
                 dateSingle.property("value", "2020-03-31");
                 dateSingle.attr("value", "2020-03-31");
@@ -80,11 +85,32 @@ function renderChart() {
                 for (i = 0; i < weatherClass.length; i++) {
                     weatherClass[i].style.display = "none";
                 }
+                for (i = 0; i < popDenClass.length; i++) {
+                    popDenClass[i].style.display = "none";
+                }
                 dateSingle.property("value", "2020-05-25");
                 dateStart.property("value", "2020-01-22");
                 dateEnd.property("value", "2020-05-25");
                 break;
            }
+        case 'Population Density Comparison':
+            {
+                for (i = 0; i < stockClass.length; i++) {
+                    stockClass[i].style.display = "none";
+                }
+                for (i = 0; i < weatherClass.length; i++) {
+                    weatherClass[i].style.display = "none";
+                }
+                for (i = 0; i < popDenClass.length; i++) {
+                    popDenClass[i].style.display = "inline-block";
+                }
+                dateType.property("value", "Single Date");
+                inputRender();
+                dateType.property("disabled", true);
+                dateSingle.attr("value", "2020-05-25");
+                dateSingle.property("value", "2020-05-25");
+                runInfection();
+            }
     }
 }
 
