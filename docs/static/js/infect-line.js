@@ -36,8 +36,6 @@ d3.csv("data/infection_date.csv", infectionData => {
     //Set the layout for the chart
     const layout = {
         title: "Confirmed Cases and Deaths of COVID-19",
-        width: "100%",
-        height: "100%"
     }
     //Set data array
     const data = [traceInfection, traceDeath];

@@ -20,6 +20,8 @@
         <script src="static/js/leaflet-heat.js"></script>
         <!--Plotly Script-->
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <!--PopDen data-->
+        <script type="text/javascript" src="static/js/us-states_popDen.js"></script>
         <!--Config file for API calling-->
         <script type="text/javascript" src="static/js/config.js"></script>
     </head>
@@ -53,10 +55,11 @@
             <select class="form-control col-3" id="comparison">
                 <option>Weather Comparison</option>
                 <option>Stock Lookup</option>
+                <option>Population Density Comparison</option>
             </select>
         </div>
         <!--Comparison info and limitations-->
-        <div class="col-10 info">
+        <div class="col-10 information">
             <div class="stock">
                 <h1>Stock Comparison</h1>
                 <hr>
@@ -67,15 +70,21 @@
                 <hr>
                 <p>Explore how four major air quality parameters have changed over the course of the COVID-19 pandemic in America. We've pulled recent data from the Environmental Protection Agency's API which provides data on every air quality parameter there is. For the purposes of these visualizations we pulled the levels of Carbon Monoxide, Ozone, Nitrogen Dioxide, and Sulfur Dioxide levels in the air over America since January 22, 2020. Data for visualizing over a date range has been aggregated to show the mean pollutant levels in air over America. Due to the struggles of COVID and the nature of pulling this kind of data currently is incomplete past March, 31, 2020.</p>
             </div>
+            <div class="popDen">
+                <h1>Population Density Comparison</h1>
+                <hr>
+                <p>Explore how COVID-19 moved through the United States based on each state's population density. Since the most recent census, 2020, has not yet concluded the 2010 census data was used to gather population density information.</p>
+            </div>
         </div>
         <!--Containers for dashboard charts-->
-        <div class="col-5 comparator" id="infection-heatmap"></div>
+        <div class="col-5 comparator single" id="infection-heatmap"></div>
         <div class="col-5 comparator" id="infection-line"></div>
         <div class="col-5 comparator stock" id="stock-candlestick"></div>
         <div class="col-5 comparator weather" id="weather-heatmap"></div>
         <div class="col-5 comparator weather" id="weather-line"></div>
+        <div class="col-5 comparator popDen" id="popDen-choro"></div>
         <!--Links to data sources-->
-        <div class="info" id="reference">
+        <div class="information" id="reference">
             <div class="stock">
 
             </div>
@@ -85,6 +94,14 @@
                 <ul>
                     <li><span>COVID-19 Cases and Death Data:</span> <a href="https://www.kaggle.com/fireballbyedimyrnmom/us-counties-covid-19-dataset" target="_blank">Kaggle CSV</a> of New York Times Publshed Data</li>
                     <li><span>Air Quality Data:</span> <a href="https://aqs.epa.gov/aqsweb/documents/data_api.html" target="_blank">AQS API</a> from EPA</li>
+                </ul>
+            </div>
+            <div class="popDen">
+                <h1>Visualizations Powered by Data from:</h1>
+                <hr>
+                <ul>
+                    <li><span>COVID-19 Cases and Death Data:</span> <a href="https://www.kaggle.com/fireballbyedimyrnmom/us-counties-covid-19-dataset" target="_blank">Kaggle CSV</a> of New York Times Publshed Data</li>
+                    <li><span>Population Density Data:</span> <a href="https://aqs.epa.gov/aqsweb/documents/data_api.html" target="_blank">2010 Census</a> from the Census Bureau</li>
                 </ul>
             </div>
         </div>
@@ -97,6 +114,8 @@
         <script src="static/js/weathermap.js"></script>
         <!--JS for Air quality line graph-->
         <script src="static/js/air-line.js"></script>
+        <!--JS for Population Density Choropleth-->
+        <script src="static/js/popDen-plot.js"></script>
         <!--JS for changing Display-->
         <script src="static/js/chart-display.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

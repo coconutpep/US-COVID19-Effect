@@ -106,7 +106,7 @@ legendAir.onAdd = function (map) {
     }
     //return the div with label
     return div;
-}   
+} 
 
 //Event handler to run code
 airDateType.on("change.air", runAir);

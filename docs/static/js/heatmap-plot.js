@@ -95,4 +95,4 @@ legend.onAdd = function (map) {
 }   
 
 //Event handler to begin running code
-infectionDateType.on("change.heat", runInfection);
+infectionDateType.on("change", runInfection);

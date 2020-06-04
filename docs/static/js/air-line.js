@@ -60,8 +60,6 @@ d3.csv("data/air_line.csv", airData => {
     //Set the layout for the chart
     const layout = {
         title: "Air Quality Pollutants Over Time",
-        width: "100%",
-        height: "100%"
     }
     //Set data array
     const data = [traceCO, traceNO2, traceO3, traceSO2];
