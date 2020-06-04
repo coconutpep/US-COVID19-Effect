@@ -39,24 +39,40 @@
         </div>
         <!--Inputs for map comparisons-->
         <div class="input-group mb-3">
-            <select class="form-control col-3" id="date-type">
-                <option>Date Range</option>
-                <option>Single Date</option>
-            </select>
-            <div class="form-group col-3" id="start-date-holder">
+            <div class="form-group col-2">
+                <select class="form-control" id="date-type" aria-describedby="date-type-help">
+                    <option>Date Range</option>
+                    <option>Single Date</option>
+                </select>
+                <small id="date-type-help" class="form-text text-muted">Date Type</small>
+            </div>
+            <div class="form-group col-2" id="start-date-holder">
                 <input type="date" class="form-control" id="start-date" aria-describedby="start-date-help">
                 <small id="start-date-help" class="form-text text-muted">Start Date</small>
             </div>
-            <div class="form-group col-3" id="end-date-holder">
+            <div class="form-group col-2" id="end-date-holder">
                 <input type="date" class="form-control" id="end-date" aria-describedby="end-date-help">
                 <small id="end-date-help" class="form-text text-muted">End Date</small>
             </div>
-            <input type="date" class="form-control col-3" id="date-input">
-            <select class="form-control col-3" id="comparison">
-                <option>Weather Comparison</option>
-                <option>Stock Lookup</option>
-                <option>Population Density Comparison</option>
-            </select>
+            <input type="date" class="form-control col-2" id="date-input">
+            <div class="form-group col-2">
+                <select class="form-control" id="comparison" aria-describedby="comparison-selector-help">
+                    <option>Weather Comparison</option>
+                    <option>Stock Lookup</option>
+                    <option>Population Density Comparison</option>
+                </select>
+                <small id="comparison-selector-help" class="form text text-muted">Select Comparison</small>
+            </div>
+            <div class="form-group col-2 stock">
+                <select class="form-control" id="stock-selector" aria-describedby="stock-selector-help">
+                    <option>Retail</option>
+                    <option>Tech</option>
+                    <option>Entertainment</option>
+                    <option>Communications</option>
+                    <option>Airlines</option>
+                </select>
+                <small id="stock-selector-help" class="form-text text-muted">Select Stock Industry</small>
+            </div>
         </div>
         <!--Comparison info and limitations-->
         <div class="col-10 information">
@@ -79,7 +95,11 @@
         <!--Containers for dashboard charts-->
         <div class="col-5 comparator single" id="infection-heatmap"></div>
         <div class="col-5 comparator" id="infection-line"></div>
-        <div class="col-5 comparator stock" id="stock-candlestick"></div>
+        <div class="col-5 comparator stock" id="Retailchart"></div>
+        <div class="col-5 comparator stock" id="Techchart"></div>
+        <div class="col-5 comparator stock" id="Enterchart"></div>
+        <div class="col-5 comparator stock" id="Comchart"></div>
+        <div class="col-5 comparator stock" id="Airlinechart"></div>
         <div class="col-5 comparator weather" id="weather-heatmap"></div>
         <div class="col-5 comparator weather" id="weather-line"></div>
         <div class="col-5 comparator popDen" id="popDen-choro"></div>

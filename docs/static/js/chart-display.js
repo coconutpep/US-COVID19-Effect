@@ -4,6 +4,8 @@ const dateType = d3.select("#date-type");
 const dateSingle = d3.select("#date-input");
 const dateStart = d3.select("#start-date-holder");
 const dateEnd = d3.select("#end-date-holder");
+//Selector for stock industry
+const stockSelector = d3.select("#stock-selector");
 
 //Selector for comparison chart
 const chartSelect = d3.select("#comparison");
@@ -40,11 +42,13 @@ function renderChart() {
                 dateStart.select("input").attr("value", "2020-01-22");
                 dateStart.select("input").attr("min", "2020-01-22");
                 dateStart.select("input").attr("max", "2020-05-25");
+                dateStart.select("input").property("disabled", false);
                 dateEnd.select("input").property("value", "2020-03-31");
                 dateEnd.select("input").attr("value", "2020-03-31");
                 dateEnd.select("input").attr("min", "2020-01-22");
                 dateEnd.select("input").attr("max", "2020-05-25");
-                dateType.property("disabled", false);
+                dateEnd.select("input").property("disabled", false);
+                dateType.property("disabled", false);;
                 switch (dateTypeValue) {
                     case 'Date Range':
                         {
@@ -83,15 +87,68 @@ function renderChart() {
                 for (i = 0; i < popDenClass.length; i++) {
                     popDenClass[i].style.display = "none";
                 }
+                d3.select("#infection-line").style("display", "inline-block");
+                d3.select("#infection-heatmap").style("display", "none");                
                 dateSingle.style("display", "none");
                 dateStart.style("display", "");
                 dateEnd.style("display", "");
                 dateType.property("value", "Date Range");
                 dateType.property("disabled", true);
+                dateStart.select("input").property("disabled", true);
+                dateEnd.select("input").property("disabled", true);
                 dateStart.property("value", "2020-01-22");
                 dateEnd.property("value", "2020-05-25");
+                const stockType = stockSelector.property("value");
+                switch (stockType) {
+                    case 'Retail':
+                        {
+                            d3.select("#Techchart").style("display", "none");
+                            d3.select("#Enterchart").style("display", "none");
+                            d3.select("#Comchart").style("display", "none");
+                            d3.select("#Airlinechart").style("display", "none");
+                            d3.select("#Retailchart").style("display", "inline-block");
+                            break;
+                        }
+                    case 'Tech':
+                        {
+                            d3.select("#Techchart").style("display", "inline-block");
+                            d3.select("#Enterchart").style("display", "none");
+                            d3.select("#Comchart").style("display", "none");
+                            d3.select("#Airlinechart").style("display", "none");
+                            d3.select("#Retailchart").style("display", "none");
+                            break;
+                        }
+                    case 'Entertainment':
+                        {
+                            d3.select("#Techchart").style("display", "none");
+                            d3.select("#Enterchart").style("display", "inline-block");
+                            d3.select("#Comchart").style("display", "none");
+                            d3.select("#Airlinechart").style("display", "none");
+                            d3.select("#Retailchart").style("display", "none");
+                            break;
+                        }
+                    case 'Communications':
+                        {
+                            d3.select("#Techchart").style("display", "none");
+                            d3.select("#Enterchart").style("display", "none");
+                            d3.select("#Comchart").style("display", "inline-block");
+                            d3.select("#Airlinechart").style("display", "none");
+                            d3.select("#Retailchart").style("display", "none");
+                            break;
+                        }
+                    case 'Airlines':
+                        {
+                            d3.select("#Techchart").style("display", "none");
+                            d3.select("#Enterchart").style("display", "none");
+                            d3.select("#Comchart").style("display", "none");
+                            d3.select("#Airlinechart").style("display", "inline-block");
+                            d3.select("#Retailchart").style("display", "none");
+                            break;
+                        }
+                        }
+                runInfection();
                 break;
-           }
+            }
         case 'Population Density Comparison':
             {
                 for (i = 0; i < stockClass.length; i++) {
@@ -125,3 +182,4 @@ renderChart();
 //Event handler to change charts when selected
 chartSelect.on("change", renderChart);
 dateType.on("change", renderChart);
+stockSelector.on("change", renderChart);
