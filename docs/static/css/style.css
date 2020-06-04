@@ -131,6 +131,12 @@ ul {
     opacity: .3;
 }
 
+.line-pop {
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 @media (max-width: 768px) {
     img.blur {
         width: auto;

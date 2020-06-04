@@ -11,7 +11,7 @@
         <!-- Leaflet CSS -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
         <!--D3 Script-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
         <!--Leaflet Script-->
         <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
         integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
@@ -93,15 +93,15 @@
             </div>
         </div>
         <!--Containers for dashboard charts-->
-        <div class="col-5 comparator single" id="infection-heatmap"></div>
-        <div class="col-5 comparator" id="infection-line"></div>
+        <div class="col-5 comparator" id="infection-heatmap"></div>
+        <div class="col-5 comparator line-pop" id="infection-line"></div>
         <div class="col-5 comparator stock" id="Retailchart"></div>
         <div class="col-5 comparator stock" id="Techchart"></div>
         <div class="col-5 comparator stock" id="Enterchart"></div>
         <div class="col-5 comparator stock" id="Comchart"></div>
         <div class="col-5 comparator stock" id="Airlinechart"></div>
         <div class="col-5 comparator weather" id="weather-heatmap"></div>
-        <div class="col-5 comparator weather" id="weather-line"></div>
+        <div class="col-5 comparator weather line-pop" id="weather-line"></div>
         <div class="col-5 comparator popDen" id="popDen-choro"></div>
         <!--Links to data sources-->
         <div class="information" id="reference">
