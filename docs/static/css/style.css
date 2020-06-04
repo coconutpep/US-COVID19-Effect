@@ -46,7 +46,7 @@ img.blur {
     margin-right: auto;
 }
 
-#infection-heatmap, #infection-line, .stock, .weather, .popDen,body, html {
+#infection-heatmap, .stock, .weather:not(#weather-line), .popDen,body, html {
     height:100%;
     display:inline-block;
 }
@@ -120,6 +120,11 @@ ul {
 .info h4 {
     margin: 0 0 5px;
     color: #777;
+}
+
+
+.form-control:disabled, .form-control[readonly] {
+    opacity: .3;
 }
 
 @media (max-width: 768px) {

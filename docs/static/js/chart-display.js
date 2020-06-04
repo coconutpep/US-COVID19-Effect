@@ -105,13 +105,16 @@ function renderChart() {
                 }
                 dateType.property("value", "Single Date");
                 dateType.property("disabled", true);
-                dateSingle.style("display", "none");
-                d3.select("#infection-heatmap").style("display", "none");
                 d3.select("#infection-line").style("display", "none");
-                dateStart.style("display", "");
-                dateEnd.style("display", "");
-                dateStart.property("value", "2020-01-22");
-                dateEnd.property("value", "2020-05-25");
+                d3.select("#infection-heatmap").style("display", "inline-block");
+                dateStart.style("display", "none");
+                dateEnd.style("display", "none");
+                dateSingle.style("display", "");
+                dateSingle.property("value", "2020-05-25");
+                dateSingle.attr("value", "2020-05-25");
+                dateSingle.attr("max", "2020-05-25");
+                dateSingle.attr("min", "2020-01-22");
+                runInfection();
                 break;
             }
     }
