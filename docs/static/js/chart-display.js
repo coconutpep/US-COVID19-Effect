@@ -94,10 +94,11 @@ function renderChart() {
                 dateEnd.style("display", "");
                 dateType.property("value", "Date Range");
                 dateType.property("disabled", true);
+                dateStart.select("input").property("value", "2020-01-22");
+                dateEnd.select("input").property("value", "2020-05-25");
+                console.log(dateEnd.select("input").property("value"));
                 dateStart.select("input").property("disabled", true);
                 dateEnd.select("input").property("disabled", true);
-                dateStart.property("value", "2020-01-22");
-                dateEnd.property("value", "2020-05-25");
                 const stockType = stockSelector.property("value");
                 switch (stockType) {
                     case 'Retail':
@@ -146,7 +147,7 @@ function renderChart() {
                             break;
                         }
                         }
-                runInfection();
+                runiLine();
                 break;
             }
         case 'Population Density Comparison':
