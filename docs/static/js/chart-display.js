@@ -59,6 +59,7 @@ function renderChart() {
                             d3.select("#weather-heatmap").style("display", "none");
                             d3.select("#infection-line").style("display", "inline-block");
                             d3.select("#weather-line").style("display", "inline-block");
+                            runiLine();
                             break;
                         }
                     case 'Single Date':
@@ -71,6 +72,7 @@ function renderChart() {
                             d3.select("#infection-heatmap").style("display", "inline-block");
                             d3.select("#weather-heatmap").style("display", "inline-block");
                             runInfection();
+                            runAir();
                             break;
                         }
                 }
@@ -96,7 +98,6 @@ function renderChart() {
                 dateType.property("disabled", true);
                 dateStart.select("input").property("value", "2020-01-22");
                 dateEnd.select("input").property("value", "2020-05-25");
-                console.log(dateEnd.select("input").property("value"));
                 dateStart.select("input").property("disabled", true);
                 dateEnd.select("input").property("disabled", true);
                 const stockType = stockSelector.property("value");
@@ -161,18 +162,44 @@ function renderChart() {
                 for (i = 0; i < popDenClass.length; i++) {
                     popDenClass[i].style.display = "inline-block";
                 }
-                dateType.property("value", "Single Date");
-                dateType.property("disabled", true);
-                d3.select("#infection-line").style("display", "none");
-                d3.select("#infection-heatmap").style("display", "inline-block");
-                dateStart.style("display", "none");
-                dateEnd.style("display", "none");
-                dateSingle.style("display", "");
-                dateSingle.property("value", "2020-05-25");
-                dateSingle.attr("value", "2020-05-25");
+                dateType.select("input").property("disabled", false);
+                dateStart.select("input").property("disabled", false);
+                dateEnd.select("input").property("disabled", false);
+                dateSingle.select("input").property("disabled", false);
+                dateStart.select("input").attr("min", "2020-01-22");
+                dateStart.select("input").attr("max", "2020-05-25");
+                dateEnd.select("input").attr("min", "2020-01-22");
+                dateEnd.select("input").attr("max", "2020-05-25");
                 dateSingle.attr("max", "2020-05-25");
                 dateSingle.attr("min", "2020-01-22");
-                runInfection();
+                switch(dateTypeValue) {
+                    case 'Single Date':
+                        {
+                            d3.select("#infection-line").style("display", "none");
+                            d3.select("#infection-heatmap").style("display", "inline-block");
+                            dateStart.style("display", "none");
+                            dateEnd.style("display", "none");
+                            dateSingle.style("display", "");
+                            dateSingle.property("value", "2020-05-25");
+                            dateSingle.attr("value", "2020-05-25");
+                            runInfection();
+                            break;
+                        }
+                    case 'Date Range':
+                        {
+                            d3.select("#infection-line").style("display", "inline-block");
+                            d3.select("#infection-heatmap").style("display", "none");
+                            dateStart.style("display", "");
+                            dateEnd.style("display", "");
+                            dateSingle.style("display", "none");
+                            dateStart.select("input").property("value", "2020-01-22");
+                            dateStart.select("input").attr("value", "2020-01-22");
+                            dateEnd.select("input").property("value", "2020-05-25");
+                            dateEnd.select("input").attr("value", "2020-05-25");
+                            runiLine();
+                            break;
+                        }
+                }
                 break;
             }
     }
