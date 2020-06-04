@@ -122,6 +122,10 @@ ul {
     color: #777;
 }
 
+.form-group {
+    margin-left:auto;
+    margin-right:auto;
+}
 
 .form-control:disabled, .form-control[readonly] {
     opacity: .3;
