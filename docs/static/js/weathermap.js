@@ -5,7 +5,7 @@ const airDateType = d3.select("#date-type");
 //Function to run code
 function runAir() {
     //Read in csv data
-    d3.csv("data/air_quality.csv", airData => {
+    d3.json("https://covid19bootcampproject3.herokuapp.com/air_quality", airData => {
         //Parse through data
         airData.forEach(d => d.observation_count = +d.observation_count);
 

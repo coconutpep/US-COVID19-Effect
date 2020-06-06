@@ -3,7 +3,7 @@ const aLineStart = d3.select("#start-date");
 const aLineEnd = d3.select("#end-date");
 
 //Read in data
-d3.csv("data/air_line.csv", airData => {
+d3.json("https://covid19bootcampproject3.herokuapp.com/air_line", airData => {
     //Parse through the data
     airData.forEach(d => d.observation_count = +d.observation_count);
     //Filter data by parameter

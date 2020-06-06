@@ -5,7 +5,7 @@ const iLineEnd = d3.select("#end-date");
 //Function for creating iline
 function runiLine() {
     //Read in data
-    d3.csv("data/infection_date.csv", infectionData => {
+    d3.json("https://covid19bootcampproject3.herokuapp.com/infection_date", infectionData => {
         //Parse through the data
         infectionData.forEach(d => {
             d.cases = +d.cases;
