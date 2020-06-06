@@ -7,7 +7,7 @@ d3.json("https://covid19bootcampproject3.herokuapp.com/air_line", airData => {
     //Parse through the data
     airData.forEach(d => {
         console.log(`Before:${d.date}`);
-        d.date = parseTime(d.date);
+        d.date = formatTime(d.date);
         console.log(`After:${d.date}`);
         d.observation_count = +d.observation_count
     });
