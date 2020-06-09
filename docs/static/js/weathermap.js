@@ -28,30 +28,10 @@ function runAir() {
         let NO2Arr = [];
         let SO2Arr = [];
         //Add lat lngs to the arrays
-        CO.forEach(d => {
-            let count = d.observation_count;
-            for (let i=0; i<=count; i++) {
-                COArr.push([d.latitude, d.longitude]);
-            }
-        });
-        O3.forEach(d => {
-            let count = d.observation_count;
-            for (let i=0; i<=count; i++) {
-                O3Arr.push([d.latitude, d.longitude]);
-            }
-        });
-        NO2.forEach(d => {
-            let count = d.observation_count;
-            for (let i=0; i<=count; i++) {
-                NO2Arr.push([d.latitude, d.longitude]);
-            }
-        });
-        SO3.forEach(d => {
-            let count = d.observation_count;
-            for (let i=0; i<=count; i++) {
-                SO3Arr.push([d.latitude, d.longitude]);
-            }
-        });
+        CO.forEach(d => {COArr.push([d.latitude, d.longitude, d.observation_count])});
+        O3.forEach(d => {O3Arr.push([d.latitude, d.longitude, d.observation_count])});
+        NO2.forEach(d => {NO2Arr.push([d.latitude, d.longitude, d.observation_count])});
+        SO3.forEach(d => {SO3Arr.push([d.latitude, d.longitude, d.observation_count])});
 
         //Create initial heatmap layers
         let COLayer = L.heatLayer(COArr, {radius:50, blur:30});
