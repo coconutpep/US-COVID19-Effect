@@ -17,6 +17,17 @@ function runInfection() {
         //Create data arrays for heatmap layers
         let infectionArr = [];
         let deathArr = [];
+        //Add lat lngs to the arrays
+        infectionData.forEach(d => {
+            let countCases = d.cases;
+            let countDeaths = d.deaths;
+            for (let i=0; i<=countCases; i++) {
+                infectionArr.push([d.lat, d.long]);
+            }
+            for (let i=0; i<=coundDeaths; i++) {
+                deathArr.push([d.lat, d.long]);
+            }
+        });
 
         //Create Heatmap layers
         let infectionLayer = L.heatLayer(infectionArr);
