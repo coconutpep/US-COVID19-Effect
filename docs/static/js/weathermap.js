@@ -43,7 +43,6 @@ L.control.layers(airoverlayMaps).addTo(myMap);
 function runAir() {
     //Set date value to a variable
     let airDateValue = airDate.property("value");
-    console.log(airDateValue);
 
     //Read in csv data
     d3.json(`https://covid19bootcampproject3.herokuapp.com/air_quality/${airDateValue}`, airData => {
