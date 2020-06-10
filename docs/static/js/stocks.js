@@ -13,20 +13,20 @@ d3.json("https://covid19bootcampproject3.herokuapp.com/stocks", stock_data => {
     var comp10 = comps[9]
 
 
-    var comp1_data = stock_data.filter(d => d.Ticker === comp1);
+    var comp1_data = stock_data.map(d => d["WMT"]);
     console.log(comp1_data);   
-    var comp2_data = stock_data.filter(d => d.Ticker === comp2);
-    var comp3_data = stock_data.filter(d => d.Ticker === comp3);
-    var comp4_data = stock_data.filter(d => d.Ticker === comp4);
-    var comp5_data = stock_data.filter(d => d.Ticker === comp5);
-    var comp6_data = stock_data.filter(d => d.Ticker === comp6);
-    var comp7_data = stock_data.filter(d => d.Ticker === comp7);
-    var comp8_data = stock_data.filter(d => d.Ticker === comp8);
-    var comp9_data = stock_data.filter(d => d.Ticker === comp9);
-    var comp10_data = stock_data.filter(d => d.Ticker === comp10);
+    var comp2_data = stock_data.map(d => d["TGT"]);
+    var comp3_data = stock_data.map(d => d["NVDA"]);
+    var comp4_data = stock_data.map(d => d["ZM"]);
+    var comp5_data = stock_data.map(d => d["SPOT"]);
+    var comp6_data = stock_data.map(d => d["NFLX"]);
+    var comp7_data = stock_data.map(d => d["AMZN"]);
+    var comp8_data = stock_data.map(d => d["SHOP"]);
+    var comp9_data = stock_data.map(d => d["DAL"]);
+    var comp10_data = stock_data.map(d => d["UAL"]);
 
 
-    var dates = stock_data.map(d => d.dates)
+    var dates = stock_data.map(d => d["date_local"]);
     console.log(dates);
 
     /* Retail Chart */
