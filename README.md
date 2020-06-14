@@ -2,6 +2,7 @@
 A digital dashboard displaying different comparisons showing the affect of COVID-19 on the U.S.A.
 [The COVID-19 Affect](https://covid19bootcampproject3.herokuapp.com/)</br>
 __NOTE__ This repository is not the one deployed to Heroku. This was used as a development stage.
+For the repository used to deploy the app please visit [Deployed](https://github.com/gpolavaram0/covid19project).
 ## [Data](docs/data)
 CSVs of data used for testing Javascript files
 ## [Index](docs/index.html)
@@ -14,7 +15,7 @@ Directory housing css files for styling the website.
 Stylesheet for the main webpage.
 ### [Stocks](docs/static/css/stock.css)
 Stylesheet for the stocks comparison page.
-## [Javascript]
+## [Javascript](docs/static/js)
 Directory housing the javascript to create, run, and format the webpages.
 ### [Air Quality Line Chart](docs/static/js/air-line.js)
 Creates air quality line chart for the webpage
@@ -30,6 +31,8 @@ Used for the creation of the population density map on the population density co
 Used for the creation of the stocks in the stock comparison.
 ### [Air Quality Heatmap](docs/static/js/weathermap.js)
 Used for the creation of the air quality heatmap in the air quality comparison.
+## [Presentation](https://github.com/coconutpep/US-COVID19-Effect/blob/master/Covid%2019%20Impact_Group%202_Final.pptx)
+Powerpoint presentation describing the process and use of the dashboard website.
 ## Built With
 * Python
   * Flask
